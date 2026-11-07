@@ -1,0 +1,28 @@
+{
+  "name": "fraksi-prototype",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others --names server,client \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite --host 0.0.0.0",
+    "dev:server": "tsx watch src/server/main.ts",
+    "start:server": "tsx src/server/main.ts",
+    "test:network": "node scripts/network-smoke-test.mjs",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/three": "^0.185.3",
+    "@types/ws": "^8.18.1",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.12",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "three": "^0.185.1",
+    "ws": "^8.21.3"
+  }
+}
