@@ -15,7 +15,13 @@ share packages or runtime state.
   adapters, reusable Stage, Scene, and Cast concepts, and a presentation-medium
   definition distinct from the selected renderer. A separate typed signal layer
   is planned to route controller-independent sources through bounded buffers and
-  explicit FX to puppet, prop, and scenery ports.
+  explicit FX to puppet, prop, and scenery ports. The planned presentation layer
+  keeps cast state above the renderers and supports measured warm switching
+  between Canvas/Three.js and multiple prepared sets. The leading demo scenario
+  is a fixed three-scene showcase: Canvas paper lobby and “Shadow Stage” door,
+  Three.js falling/swirl transition with varied puppet instances, then the
+  original cast revealed in a Three.js shadow stage through a synchronized
+  blackout and authored screen/projector-light cue.
 - No `shared-duet` application or shared package workspace exists yet. The two
   current applications remain unchanged reference baselines.
 

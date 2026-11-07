@@ -12,8 +12,9 @@ within **Next** and **Later** is undecided unless noted.
 - Correct documentation when it diverges from current interaction behavior;
   the prototype README currently describes controls no longer exposed.
 - Manually evaluate the webcam duet with real cameras, two physical performers,
-  touch devices, tracking loss, and the audience view; these paths are present
-  but were not exercised in the current verification.
+  at least two observer laptops, touch devices, tracking loss, and the audience
+  view; these paths are present but were not exercised in the current
+  verification.
 - Define acceptance measurements and devices for preserving webcam-duet's solo
   responsiveness in the next demo. This requires project-owner input.
 
@@ -30,6 +31,13 @@ within **Next** and **Later** is undecided unless noted.
 - Define the initial presentation-medium profile and explicit renderer
   capability contract, preserving the distinction between a medium's artistic
   intent and its Canvas or Three.js implementation.
+- Use the same shared-duet cast, controls, and networking to compare live Canvas
+  and Three.js switching in the agreed paper-lobby → falling/swirl → shadow-stage
+  showcase sketch. Include stable performer slots, original and transition cast,
+  three set/asset bundles, a minimal cue key/reset, shared blackout transition,
+  authored shadow-stage illumination ramp, and measurements for cold load, warm
+  preparation, frame-boundary activation, retained memory, and frame cost. This
+  is the agreed next-demo scenario; its priority is decided.
 - Harden a selected demo for use beyond a trusted LAN: HTTPS/WSS, deployment
   configuration, room identity, reconnect policy, backpressure, and observable
   diagnostics.
@@ -46,6 +54,9 @@ within **Next** and **Later** is undecided unless noted.
 - Matchmaking and ephemeral room lifecycle for formats such as Fraksi roulette.
 - Synchronized, preloaded audio cues for lip-sync and music-driven performance;
   optional WebRTC live-media adapters only where a format requires them.
+- Director/stage-manager production control with role authorization, multiview,
+  transactional cue stack, scene/set changes, scenery/camera/light/sound ports,
+  readiness reporting, and atomic control-patch reassignment.
 - Dynamic/shared ownership, assisted control, overlap periods, and graceful
   handoffs below the whole-character level.
 - Sliding, elastic, weighted, pushing, spring, and other expressive constraints;

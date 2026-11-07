@@ -17,6 +17,12 @@ These are questions or proposals, not implemented capabilities unless
   stations compare as expressive instruments?
 - Which minimal remote-presentation policy preserves rapid cartoony accents
   without exposing distracting network jitter?
+- With two performer laptops and two observer laptops, how differently do the
+  performers and audience perceive timing when each performer sees immediate
+  local prediction but observers see both puppets through a matched buffer?
+- Do close reactions, handoffs, apparent contact, and synchronized accents read
+  consistently from performer and observer views, or do they require explicit
+  timing/rehearsal affordances?
 
 ## Control and solving
 
@@ -78,9 +84,22 @@ These are questions or proposals, not implemented capabilities unless
   as puppets or adding special cases to the room?
 - What canonical view information is genuinely shared between Canvas and
   Three.js, and what must remain renderer-specific?
-- When should cameras become explicit scene objects, and how should a later
-  sketch sequence multiple scenes and cues without turning Fraksi into a clip
-  authoring system?
+- When should cameras become explicit scene objects, and how much of the next
+  demo's fixed three-scene cue sequence should remain reusable before Fraksi
+  risks turning into a clip-authoring system?
+- What asset manifest and cache policy best shares semantic artwork identities
+  while allowing different Canvas and Three.js representations?
+- What warm renderer/set memory budget is safe on the M1 Max and iPad Mini, and
+  when should prepared textures, geometry, and decoded images be evicted?
+- Which preparation work—image decode, geometry creation, shader compilation,
+  GPU upload, first layout—must be forced before a switch can honestly be called
+  instant?
+- Which presentation effects have stable renderer-neutral meaning, which are
+  medium-specific lighting cues, and which should remain Canvas- or
+  Three.js-only capabilities?
+- How should the same fade/blackout cue be reproduced in browser composition,
+  canvas capture, Three.js output, and deterministic replay without requiring
+  every renderer to use the same post-processing implementation?
 
 ## Future sketch concepts
 
@@ -129,6 +148,33 @@ preferable to streaming the same asset through WebSocket. Live voice, external
 video, or media guests would instead call for a dedicated real-time media
 transport such as WebRTC. Open issues include clock synchronization, late join,
 pause/restart authority, scoring, recording, accessibility, and music rights.
+
+## Director and stage-manager mode
+
+A later production-control station could combine an overview/multiview with a
+cue stack, scene/set/asset readiness, cast claims, live source levels, the patch
+bay, and shared production-camera output. Authorized operators could prepare
+and take scene or set changes; move scenery; operate cameras, lights, and sound;
+and atomically reassign which source or control rig drives a puppet or other
+target.
+
+Treat this as a privileged room role and ordinary source/cue client, not logic
+embedded in Canvas or Three.js. Scenery, camera, lighting, and sound expose
+typed target ports; director controls and automation are sources routed through
+the same patch layer. Patch changes use the same seeded takeover semantics as a
+performer handoff.
+
+Production cues need transactional phases such as **prepare**, **ready**,
+**go/effective timestamp**, and **complete/fail**. The server validates role,
+capability, expected room revision, target locks, and asset readiness before
+committing a cue. Cue and patch history should be recordable for diagnosis and
+replay. Open policy questions include performer notification or consent for
+reassignment, manual override, undo/recovery, partial client readiness, and
+what happens when a destination cannot support the selected medium or asset.
+
+Keep the shared production camera distinct from each workstation's local
+monitor view. A director may zoom or cut the audience output without disrupting
+the framing a performer needs to operate their puppet.
 
 ## Platform and outputs
 

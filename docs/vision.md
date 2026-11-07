@@ -25,6 +25,12 @@ performance studies. Premature goals include neither a complete animation
 suite nor generalized whole-body optimization, photorealism, automatic acting,
 or a universal node editor.
 
+Later ensemble productions may add human director or stage-manager stations
+that cue scenes and sets, operate scenery/cameras/lights/sound, and reassign
+control patches. These remain authorized participants in the same live system;
+they do not move production authority into a renderer or replace performer
+agency by default.
+
 ## Project-owner input required
 
 The repository does not establish the following choices:

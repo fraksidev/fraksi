@@ -79,15 +79,39 @@
   secondary mechanics, but are never applied as universal smoothing.
 - **Canvas and Three.js are peer render adapters.** Both consume the same
   stage/scene/cast and canonical pose state, and only the selected renderer runs.
+- **Shared-duet is a three-scene showcase sketch.** It begins with the original
+  cast at a Canvas paper-lobby door, uses a prepared Three.js falling/swirl
+  transition with varied puppet instances, and lands the original cast upright
+  in a Three.js shadow stage. A minimal authorized cue key and reset exercise
+  the architecture without implementing a general show-control interface.
+- **Performer slots persist across cast substitution.** A person/source claims a
+  durable slot; scene cues atomically route that slot between original and
+  transition cast members. Puppet instances remain independent of controllers,
+  and performers do not reclaim controls during the sketch.
+- **Live cast state outlives a scene or set.** The running performance/room owns
+  cast identity, claims, patches, FX, and canonical pose. Scenes place cast
+  members by ID and sets provide scenery/props, so presentation changes do not
+  recreate or release performers.
+- **One coordinator owns rendering and switching.** Canvas and Three.js use
+  separate surfaces but never independent frame loops. Prepared renderers or
+  sets activate atomically on a frame boundary; inactive adapters retain only
+  deliberately cached memory/resources and perform no continuous work.
+- **Blackout and stage illumination are separate cues.** A shared presentation
+  fade guarantees full concealment of the transition-to-shadow scene swap; once
+  committed, the authored Three.js shadow-screen/projector illumination rises
+  to reveal the set. A broad post-FX framework is deferred, and renderer-specific
+  post-processing APIs do not enter shared scene or protocol contracts.
 - **Use Stage, Scene, and Cast as domain boundaries.** A stage defines the
-  performance space, a scene supplies scenery/props/cast configuration, and cast
-  members are controllable puppet instances. Cameras and multi-scene sketches
-  may extend this model later.
+  performance space, a set supplies scenery/props, a scene selects the set and
+  places cast, and cast members are continuing controllable puppet instances.
+  The next demo exercises a fixed minimal multi-scene sketch; cameras and a
+  general show-authoring model may extend it later.
 - **Separate presentation medium from renderer.** A stage selects the
   theatrical/optical model—such as shadow screen, camera-viewed paper, or
   overhead projector—while Canvas or Three.js implements that model according
   to declared capabilities. Medium choice never changes control authority or
   canonical pose.
-- **Networking is part of shared-duet.** It includes performer/viewer ownership,
-  atomic solo claims, authoritative state, release, and pose-preserving handoff
-  rather than remaining a later integration.
+- **Networking is part of shared-duet.** It includes performer slots, viewers,
+  atomic solo claims, cue-synchronized routing/presentation, authoritative
+  state, release, and pose-preserving handoff rather than remaining a later
+  integration.
